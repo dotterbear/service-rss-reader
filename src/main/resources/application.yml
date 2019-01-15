@@ -1,3 +1,7 @@
+spring:
+  jackson:
+    serialization:
+      INDENT_OUTPUT: true
 amazon:
   dynamodb:
     endpoint: http://localhost:33000/

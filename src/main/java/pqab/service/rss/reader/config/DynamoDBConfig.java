@@ -13,6 +13,10 @@ import com.amazonaws.auth.DefaultAWSCredentialsProviderChain;
 import com.amazonaws.client.builder.AwsClientBuilder.EndpointConfiguration;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapperConfig;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapperConfig.ConsistentReads;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapperConfig.PaginationLoadingStrategy;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapperConfig.SaveBehavior;
 
 @Configuration
 @EnableDynamoDBRepositories(basePackages = "pqab.service.rss.reader.repository")
@@ -39,6 +43,17 @@ public class DynamoDBConfig {
             .withCredentials(awsCredentialsProvider)
             .build();
     return amazonDynamoDB;
+  }
+
+  @Bean
+  public DynamoDBMapperConfig dynamoDBMapperConfig() {
+    DynamoDBMapperConfig dynamoDBMapperConfig =
+        new DynamoDBMapperConfig.Builder()
+            .withSaveBehavior(SaveBehavior.CLOBBER)
+            .withConsistentReads(ConsistentReads.CONSISTENT)
+            .withPaginationLoadingStrategy(PaginationLoadingStrategy.EAGER_LOADING)
+            .build();
+    return dynamoDBMapperConfig;
   }
 
   @Bean

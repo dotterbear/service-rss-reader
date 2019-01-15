@@ -1,14 +1,14 @@
 package pqab.service.rss.reader.entity;
 
-import java.util.Set;
+import java.util.List;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBDocument;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapperFieldModel.DynamoDBAttributeType;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTyped;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
 @DynamoDBDocument
+@JacksonXmlRootElement(localName = "channel")
 public class Channel {
 
   @JacksonXmlProperty(localName = "pubDate")
@@ -23,16 +23,12 @@ public class Channel {
   @JacksonXmlProperty(localName = "description")
   private String description;
 
-  @JacksonXmlProperty(localName = "link")
-  private String link;
-
   @JacksonXmlProperty(localName = "lastBuildDate")
   private String lastBuildDate;
 
-  @DynamoDBTyped(DynamoDBAttributeType.L)
+  @JacksonXmlElementWrapper(localName = "items", useWrapping = true)
   @JacksonXmlProperty(localName = "item")
-  @JacksonXmlElementWrapper(useWrapping = false)
-  private Set<Item> item;
+  private List<Item> item;
 
   @JacksonXmlProperty(localName = "language")
   private String language;
@@ -69,14 +65,6 @@ public class Channel {
     this.description = description;
   }
 
-  public String getLink() {
-    return link;
-  }
-
-  public void setLink(String link) {
-    this.link = link;
-  }
-
   public String getLastBuildDate() {
     return lastBuildDate;
   }
@@ -85,11 +73,11 @@ public class Channel {
     this.lastBuildDate = lastBuildDate;
   }
 
-  public Set<Item> getItem() {
+  public List<Item> getItem() {
     return item;
   }
 
-  public void setItem(Set<Item> item) {
+  public void setItem(List<Item> item) {
     this.item = item;
   }
 
@@ -104,7 +92,7 @@ public class Channel {
   @Override
   public String toString() {
     return String.format(
-        "Channel[pubDate=%s, title=%s, category=%s, description=%s, link=%s, lastBuildDate=%s, item=%s, language=%s]",
-        pubDate, title, category, description, link, lastBuildDate, item, language);
+        "Channel[pubDate=%s, title=%s, category=%s, description=%s, lastBuildDate=%s, item=%s, language=%s]",
+        pubDate, title, category, description, lastBuildDate, item, language);
   }
 }

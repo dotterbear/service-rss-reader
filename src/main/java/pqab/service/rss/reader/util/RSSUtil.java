@@ -13,8 +13,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.converter.xml.MappingJackson2XmlHttpMessageConverter;
 import org.springframework.stereotype.Component;
 
-import com.fasterxml.jackson.core.JsonParser.Feature;
-import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import pqab.service.rss.reader.entity.RSSFeed;
@@ -32,11 +30,11 @@ public class RSSUtil {
     httpcon.addRequestProperty("User-Agent", "Mozilla/4.0");
     try (InputStream input = httpcon.getInputStream()) {
       String value = IOUtils.toString(input, "utf-8");
+      value = value.replace("</category>", "</category><items>");
+      value = value.replace("<atom", "</items><atom");
       ObjectMapper objectMapper = httpMessageConverter.getObjectMapper();
-      objectMapper.configure(Feature.ALLOW_UNQUOTED_CONTROL_CHARS, true);
-      objectMapper.enable(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT);
       RSSFeed rssFeed = objectMapper.readValue(value, RSSFeed.class);
-      return Optional.of(rssFeed);
+      return Optional.ofNullable(rssFeed);
     }
   }
 }
