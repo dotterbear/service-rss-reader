@@ -24,5 +24,5 @@ build_image:
     - docker login -u $CI_DEPLOY_USER -p $CI_DEPLOY_PASSWORD $CI_REGISTRY
     - docker info
   script:
-    - docker build -t $CI_REGISTRY$CI_REGISTRY_PATH .
+    - docker build --build-arg JASYPT_ENCRYTOR_PASSWORD=$JASYPT_ENCRYTOR_PASSWORD -t $CI_REGISTRY$CI_REGISTRY_PATH .
     - docker push $CI_REGISTRY$CI_REGISTRY_PATH

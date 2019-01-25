@@ -1,14 +1,9 @@
 spring:
+  profiles: 
+    active: dev
   jackson:
     serialization:
       INDENT_OUTPUT: true
-amazon:
-  dynamodb:
-    endpoint: http://localhost:33000/
-    location: ap-south-1
-  aws:
-    accesskey: xskCMievjQcKABonsdf3nsVhe7LRdOb5OWH4ysqW
-    secretkey: yb*-H]j*pZLY
 eureka:
   client:
     register-with-eureka: false
@@ -17,3 +12,23 @@ server:
 rss:
   reader:
     url: https://hk.jobsdb.com/HK/en/Rss/JobListing?jobFunctionId=131
+---
+spring: 
+  profiles: dev  
+amazon:
+  dynamodb:
+    endpoint: http://localhost:33000/
+    location: ap-south-1
+  aws:
+    accesskey: xskCMievjQcKABonsdf3nsVhe7LRdOb5OWH4ysqW
+    secretkey: ENC(6mPLYf51WVS9QUP7nfcgyt50ugZx/pVI)
+---
+spring: 
+  profiles: prod  
+amazon:
+  dynamodb:
+    endpoint: http://localhost:33000/
+    location: ap-south-1
+  aws:
+    accesskey: xskCMievjQcKABonsdf3nsVhe7LRdOb5OWH4ysqW
+    secretkey: ENC(6mPLYf51WVS9QUP7nfcgyt50ugZx/pVI)
