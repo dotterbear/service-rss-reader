@@ -19,7 +19,10 @@
 		<java.version>1.8</java.version>
 		<spring-cloud.version>Finchley.SR1</spring-cloud.version>
 		<spring-data.version>Hopper-SR10</spring-data.version>
-
+		<springfox-swagger2.version>2.9.2</springfox-swagger2.version>
+		<jasypt-spring-boot-starter.version>2.1.0</jasypt-spring-boot-starter.version>
+		<spring-data-dynamodb.version>5.0.4</spring-data-dynamodb.version>
+		<commons-io.version>2.6</commons-io.version>
 	</properties>
 
 	<dependencies>
@@ -58,7 +61,7 @@
 		<dependency>
 			<groupId>com.github.derjust</groupId>
 			<artifactId>spring-data-dynamodb</artifactId>
-			<version>5.0.4</version>
+			<version>${spring-data-dynamodb.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.fasterxml.jackson.dataformat</groupId>
@@ -67,7 +70,7 @@
 		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
-			<version>2.6</version>
+			<version>${commons-io.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
@@ -76,7 +79,17 @@
 		<dependency>
 			<groupId>com.github.ulisesbocchio</groupId>
 			<artifactId>jasypt-spring-boot-starter</artifactId>
-			<version>2.1.0</version>
+			<version>${jasypt-spring-boot-starter.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>${springfox-swagger2.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>${springfox-swagger2.version}</version>
 		</dependency>
 	</dependencies>
 

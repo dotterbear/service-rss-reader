@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -23,14 +24,14 @@ public class WebController {
 
   @Autowired RSSManager rssManager;
 
-  @RequestMapping("findById")
+  @GetMapping("findById")
   @ResponseBody
   public ResponseEntity<RSSFeed> findById(@RequestParam("id") String id) {
     return new ResponseEntity<RSSFeed>(
         rssRepository.findById(id).orElse(new RSSFeed()), HttpStatus.OK);
   }
 
-  @RequestMapping("fetchRSSFeed")
+  @GetMapping("fetchRSSFeed")
   @ResponseBody
   public ResponseEntity<RSSFeed> fetchRSSFeed() throws MalformedURLException, IOException {
     return new ResponseEntity<RSSFeed>(

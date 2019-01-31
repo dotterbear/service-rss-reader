@@ -20,3 +20,8 @@ For windows
 SET DYNAMO_ENDPOINT=http://localhost:33000
 dynamodb-admin
 ```
+
+##### Swagger UI
+```
+localhost:8762/swagger-ui.html
+```
