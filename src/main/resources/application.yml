@@ -28,7 +28,7 @@ spring:
 amazon:
   dynamodb:
     endpoint: http://localhost:33000/
-    location: ap-south-1
+    location: us-east-1
   aws:
     accesskey: xskCMievjQcKABonsdf3nsVhe7LRdOb5OWH4ysqW
     secretkey: ENC(6mPLYf51WVS9QUP7nfcgyt50ugZx/pVI)
