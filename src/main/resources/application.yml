@@ -27,8 +27,11 @@ spring:
   profiles: prod  
 amazon:
   dynamodb:
-    endpoint: http://localhost:33000/
+    endpoint: ENC(nVi2J9RZcoAkQ/02B/rxkHm+1KHauKEuObjUqEfdsztmnGFpGbXG7Q==)
     location: us-east-1
   aws:
     accesskey: xskCMievjQcKABonsdf3nsVhe7LRdOb5OWH4ysqW
     secretkey: ENC(6mPLYf51WVS9QUP7nfcgyt50ugZx/pVI)
+eureka:
+  instance:
+    hostname: ENC(G/yIesS8dRy6gDIbwu1PCllr/7j/1yuWGy8gviQ8wUI=)
