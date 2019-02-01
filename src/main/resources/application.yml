@@ -4,9 +4,13 @@ spring:
   jackson:
     serialization:
       INDENT_OUTPUT: true
+  application:
+    name: service-rss-reader
 eureka:
   client:
     register-with-eureka: false
+    instance:
+   		appname: service-rss-reader
 server:
   port: 8762
 rss:
