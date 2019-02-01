@@ -35,3 +35,6 @@ amazon:
 eureka:
   instance:
     hostname: ENC(1JypzSnMMiWY+x1fGTnJuMFVRODMR2Jl)
+  client:
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
