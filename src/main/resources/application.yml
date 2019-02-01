@@ -28,7 +28,7 @@ spring:
 amazon:
   dynamodb:
     endpoint: ENC(nVi2J9RZcoAkQ/02B/rxkHm+1KHauKEuObjUqEfdsztmnGFpGbXG7Q==)
-    location: us-east-1
+    location: ap-south-1
   aws:
     accesskey: xskCMievjQcKABonsdf3nsVhe7LRdOb5OWH4ysqW
     secretkey: ENC(6mPLYf51WVS9QUP7nfcgyt50ugZx/pVI)
