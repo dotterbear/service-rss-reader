@@ -41,4 +41,4 @@ eureka:
     hostname: ENC(1JypzSnMMiWY+x1fGTnJuMFVRODMR2Jl)
   client:
     service-url:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: http://${eureka.instance.hostname}:8761/eureka/
