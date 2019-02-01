@@ -10,7 +10,7 @@ eureka:
   client:
     register-with-eureka: false
     instance:
-   		appname: service-rss-reader
+      appname: service-rss-reader
 server:
   port: 8762
 rss:
