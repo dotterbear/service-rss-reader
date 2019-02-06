@@ -1,4 +1,4 @@
-package pqab.service.rss.reader.util;
+package dotterbear.service.rss.reader.util;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;

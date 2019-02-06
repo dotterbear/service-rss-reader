@@ -1,4 +1,4 @@
-package pqab.service.rss.reader.repository;
+package dotterbear.service.rss.reader.repository;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -16,8 +16,8 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapperConfig;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression;
 import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 
-import pqab.service.rss.reader.entity.RSSFeed;
-import pqab.service.rss.reader.util.ApplicationContextUtil;
+import dotterbear.service.rss.reader.entity.RSSFeed;
+import dotterbear.service.rss.reader.util.ApplicationContextUtil;
 
 @Repository
 public interface RSSRepository extends CrudRepository<RSSFeed, String> {

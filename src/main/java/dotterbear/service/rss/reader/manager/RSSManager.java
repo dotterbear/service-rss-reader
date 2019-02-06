@@ -1,4 +1,4 @@
-package pqab.service.rss.reader.manager;
+package dotterbear.service.rss.reader.manager;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -11,11 +11,11 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import pqab.service.rss.reader.entity.Channel;
-import pqab.service.rss.reader.entity.Item;
-import pqab.service.rss.reader.entity.RSSFeed;
-import pqab.service.rss.reader.repository.RSSRepository;
-import pqab.service.rss.reader.util.RSSUtil;
+import dotterbear.service.rss.reader.entity.Channel;
+import dotterbear.service.rss.reader.entity.Item;
+import dotterbear.service.rss.reader.entity.RSSFeed;
+import dotterbear.service.rss.reader.repository.RSSRepository;
+import dotterbear.service.rss.reader.util.RSSUtil;
 
 @Component
 public class RSSManager {

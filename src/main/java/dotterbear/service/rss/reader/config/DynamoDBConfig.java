@@ -1,4 +1,4 @@
-package pqab.service.rss.reader.config;
+package dotterbear.service.rss.reader.config;
 
 import org.socialsignin.spring.data.dynamodb.repository.config.EnableDynamoDBRepositories;
 import org.springframework.beans.factory.annotation.Value;
@@ -19,7 +19,7 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapperConfig.Pagin
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapperConfig.SaveBehavior;
 
 @Configuration
-@EnableDynamoDBRepositories(basePackages = "pqab.service.rss.reader.repository")
+@EnableDynamoDBRepositories(basePackages = "dotterbear.service.rss.reader.repository")
 public class DynamoDBConfig {
 
   @Value("${amazon.dynamodb.endpoint}")

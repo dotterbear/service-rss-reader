@@ -1,4 +1,4 @@
-package pqab.service.rss.reader;
+package dotterbear.service.rss.reader;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,7 +10,7 @@ import com.amazonaws.services.dynamodbv2.model.CreateTableRequest;
 import com.amazonaws.services.dynamodbv2.model.ProvisionedThroughput;
 import com.amazonaws.services.dynamodbv2.util.TableUtils;
 
-import pqab.service.rss.reader.entity.RSSFeed;
+import dotterbear.service.rss.reader.entity.RSSFeed;
 
 @SpringBootApplication
 public class ServiceRSSReaderApplication {

@@ -1,4 +1,4 @@
-package pqab.service.rss.reader.entity;
+package dotterbear.service.rss.reader.entity;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBDocument;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlCData;

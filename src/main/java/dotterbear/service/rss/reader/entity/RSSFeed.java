@@ -1,4 +1,4 @@
-package pqab.service.rss.reader.entity;
+package dotterbear.service.rss.reader.entity;
 
 import java.util.Date;
 

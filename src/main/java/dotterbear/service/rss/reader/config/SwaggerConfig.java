@@ -1,4 +1,4 @@
-package pqab.service.rss.reader.config;
+package dotterbear.service.rss.reader.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

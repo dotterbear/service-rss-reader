@@ -1,4 +1,4 @@
-package pqab.service.rss.reader.controller;
+package dotterbear.service.rss.reader.controller;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import pqab.service.rss.reader.entity.RSSFeed;
-import pqab.service.rss.reader.manager.RSSManager;
-import pqab.service.rss.reader.repository.RSSRepository;
+import dotterbear.service.rss.reader.entity.RSSFeed;
+import dotterbear.service.rss.reader.manager.RSSManager;
+import dotterbear.service.rss.reader.repository.RSSRepository;
 
 @RestController
 @RequestMapping(path = "/", produces = MediaType.APPLICATION_JSON_VALUE)

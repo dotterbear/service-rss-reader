@@ -1,4 +1,4 @@
-package pqab.service.rss.reader.util;
+package dotterbear.service.rss.reader.util;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import pqab.service.rss.reader.entity.RSSFeed;
+import dotterbear.service.rss.reader.entity.RSSFeed;
 
 @Component
 public class RSSUtil {
