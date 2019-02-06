@@ -5,7 +5,7 @@ stages:
 
 sonar:
   stage: sonar
-  image: node:stable
+  image: node:8
   variables:
     SONAR_HOST_URL: $SONAR_HOST_URL
   before_script:
