@@ -3,17 +3,13 @@ stages:
   - jar
   - image
 
-parallel: 2
-
 sonar:
   stage: sonar
   image: node:8
-  variables:
-    SONAR_HOST_URL: $SONAR_HOST_URL
   before_script:
     - npm install -g sonarqube-scanner
   script:
-    - sonar-scanner
+    - sonar-scanner -Dsonar.host.url=$SONAR_HOST_URL
 
 build_jar:
   stage: jar
