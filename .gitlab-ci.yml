@@ -9,7 +9,7 @@ sonar:
   before_script:
     - npm install -g sonarqube-scanner
   script:
-    - sonar-scanner -Dsonar.host.url=$SONAR_HOST_URL
+    - sonar-scanner -Dsonar.host.url=$SONAR_HOST_URL -Dsonar.login=$SONAR_LOGIN
 
 build_jar:
   stage: jar
