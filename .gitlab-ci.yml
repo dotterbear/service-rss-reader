@@ -3,6 +3,8 @@ stages:
   - jar
   - image
 
+parallel: 2
+
 sonar:
   stage: sonar
   image: node:8
