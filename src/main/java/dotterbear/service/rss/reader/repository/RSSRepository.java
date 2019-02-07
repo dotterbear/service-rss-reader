@@ -37,7 +37,7 @@ public interface RSSRepository extends CrudRepository<RSSFeed, String> {
     attributeNames.put("#createDate", "createDate");
 
     Map<String, AttributeValue> attributeValues = new HashMap<String, AttributeValue>();
-    attributeValues.put(":today", new AttributeValue().withS(today.toString()));
+    attributeValues.put(":today", new AttributeValue().withS(today));
 
     DynamoDBScanExpression scanExpression =
         new DynamoDBScanExpression()

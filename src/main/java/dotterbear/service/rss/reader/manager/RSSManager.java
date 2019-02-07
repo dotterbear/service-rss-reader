@@ -43,7 +43,7 @@ public class RSSManager {
         latestRSSFeedItems.stream().map(Item::getLink).collect(Collectors.toSet());
 
     rssFeedLinks.removeAll(latestRSSFeedLinks);
-    return rssFeedLinks.size() == 0
+    return rssFeedLinks.isEmpty()
         ? Optional.empty()
         : Optional.ofNullable(Optional.ofNullable(rssFeed).map(o -> rssRepository.save(o)).get());
   }

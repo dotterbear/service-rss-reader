@@ -1,6 +1,5 @@
 package dotterbear.service.rss.reader.util;
 
-import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
@@ -15,7 +14,7 @@ public class ApplicationContextUtil implements ApplicationContextAware {
   }
 
   @Override
-  public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+  public void setApplicationContext(ApplicationContext applicationContext) {
     ApplicationContextUtil.applicationContext = applicationContext;
   }
 }

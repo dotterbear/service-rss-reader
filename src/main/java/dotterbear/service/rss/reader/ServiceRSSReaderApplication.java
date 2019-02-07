@@ -28,12 +28,5 @@ public class ServiceRSSReaderApplication {
     CreateTableRequest tableRequest = dynamoDBMapper.generateCreateTableRequest(RSSFeed.class);
     tableRequest.setProvisionedThroughput(new ProvisionedThroughput(1L, 1L));
     TableUtils.createTableIfNotExists(amazonDynamoDB, tableRequest);
-
-    /*
-     * DeleteTableRequest dTableRequest =
-     * dynamoDBMapper.generateDeleteTableRequest(RSS.class);
-     * TableUtils.deleteTableIfExists(amazonDynamoDB, dTableRequest);
-     */
-
   }
 }

@@ -1,7 +1,6 @@
 package dotterbear.service.rss.reader.controller;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -33,7 +32,7 @@ public class WebController {
 
   @GetMapping("fetchRSSFeed")
   @ResponseBody
-  public ResponseEntity<RSSFeed> fetchRSSFeed() throws MalformedURLException, IOException {
+  public ResponseEntity<RSSFeed> fetchRSSFeed() throws IOException {
     return new ResponseEntity<RSSFeed>(
         rssManager.fetchRSSFeed().orElse(new RSSFeed()), HttpStatus.OK);
   }
