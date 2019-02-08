@@ -25,7 +25,7 @@ public class RSSUtil {
   @Value("${rss.reader.url}")
   private String url;
 
-  public Optional<RSSFeed> fetchRSSFeed() throws MalformedURLException, IOException {
+  public Optional<RSSFeed> fetchRSSFeed() throws IOException {
     HttpURLConnection httpcon = (HttpURLConnection) new URL(this.url).openConnection();
     httpcon.addRequestProperty("User-Agent", "Mozilla/4.0");
     try (InputStream input = httpcon.getInputStream()) {
