@@ -19,26 +19,32 @@ import dotterbear.service.rss.reader.util.RSSUtil;
 @Component
 public class RSSManager {
 
-	@Autowired
-	private RSSRepository rssRepository;
+  @Autowired private RSSRepository rssRepository;
 
-	@Autowired
-	private RSSUtil rssUtil;
+  @Autowired private RSSUtil rssUtil;
 
-	public Optional<RSSFeed> fetchRSSFeed() throws IOException {
-		Optional<RSSFeed> rssFeedOptional = rssUtil.fetchRSSFeed();
-		RSSFeed rssFeed = rssFeedOptional.isPresent() ? rssFeedOptional.get() : null;
-		List<Item> rssFeedItems = Optional.ofNullable(rssFeed).map(RSSFeed::getChannel).map(Channel::getItem)
-				.orElse(new ArrayList<Item>());
-		Set<String> rssFeedLinks = rssFeedItems.stream().map(Item::getLink).collect(Collectors.toSet());
+  public Optional<RSSFeed> fetchRSSFeed() throws IOException {
+    Optional<RSSFeed> rssFeedOptional = rssUtil.fetchRSSFeed();
+    RSSFeed rssFeed = rssFeedOptional.isPresent() ? rssFeedOptional.get() : null;
+    List<Item> rssFeedItems =
+        Optional.ofNullable(rssFeed)
+            .map(RSSFeed::getChannel)
+            .map(Channel::getItem)
+            .orElse(new ArrayList<Item>());
+    Set<String> rssFeedLinks = rssFeedItems.stream().map(Item::getLink).collect(Collectors.toSet());
 
-		RSSFeed latestRSSFeed = rssRepository.findByCreateDate().orElse(new RSSFeed());
-		List<Item> latestRSSFeedItems = Optional.ofNullable(latestRSSFeed).map(RSSFeed::getChannel)
-				.map(Channel::getItem).orElse(new ArrayList<Item>());
-		Set<String> latestRSSFeedLinks = latestRSSFeedItems.stream().map(Item::getLink).collect(Collectors.toSet());
+    RSSFeed latestRSSFeed = rssRepository.findByCreateDate().orElse(new RSSFeed());
+    List<Item> latestRSSFeedItems =
+        Optional.ofNullable(latestRSSFeed)
+            .map(RSSFeed::getChannel)
+            .map(Channel::getItem)
+            .orElse(new ArrayList<Item>());
+    Set<String> latestRSSFeedLinks =
+        latestRSSFeedItems.stream().map(Item::getLink).collect(Collectors.toSet());
 
-		rssFeedLinks.removeAll(latestRSSFeedLinks);
-		return rssFeedLinks.isEmpty() ? Optional.empty()
-				: Optional.ofNullable(Optional.ofNullable(rssFeed).map(o -> rssRepository.save(o)).get());
-	}
+    rssFeedLinks.removeAll(latestRSSFeedLinks);
+    return rssFeedLinks.isEmpty()
+        ? Optional.empty()
+        : Optional.ofNullable(Optional.ofNullable(rssFeed).map(o -> rssRepository.save(o)).get());
+  }
 }

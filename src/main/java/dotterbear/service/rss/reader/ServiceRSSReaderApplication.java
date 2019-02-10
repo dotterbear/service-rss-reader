@@ -19,7 +19,6 @@ public class ServiceRSSReaderApplication {
 
     ConfigurableApplicationContext context =
         SpringApplication.run(ServiceRSSReaderApplication.class, args);
-
     initializeTables(context.getBean(AmazonDynamoDB.class));
   }
 
