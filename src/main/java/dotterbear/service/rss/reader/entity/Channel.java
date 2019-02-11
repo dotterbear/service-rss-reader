@@ -2,12 +2,10 @@ package dotterbear.service.rss.reader.entity;
 
 import java.util.List;
 
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBDocument;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
-@DynamoDBDocument
 @JacksonXmlRootElement(localName = "channel")
 public class Channel {
 

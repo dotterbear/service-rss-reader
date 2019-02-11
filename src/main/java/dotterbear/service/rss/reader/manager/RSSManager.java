@@ -2,6 +2,7 @@ package dotterbear.service.rss.reader.manager;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -26,6 +27,14 @@ public class RSSManager {
   public Optional<RSSFeed> fetchRSSFeed() throws IOException {
     Optional<RSSFeed> rssFeedOptional = rssUtil.fetchRSSFeed();
     RSSFeed rssFeed = rssFeedOptional.isPresent() ? rssFeedOptional.get() : null;
+    rssFeed.setCreateDate(new Date());
+    rssFeed.setLastModifiedDate(new Date());
+    return Optional.ofNullable(Optional.ofNullable(rssFeed).map(o -> rssRepository.save(o)).get());
+  }
+
+  public Optional<RSSFeed> fetchRSSFeed2() throws IOException {
+    Optional<RSSFeed> rssFeedOptional = rssUtil.fetchRSSFeed();
+    RSSFeed rssFeed = rssFeedOptional.isPresent() ? rssFeedOptional.get() : null;
     List<Item> rssFeedItems =
         Optional.ofNullable(rssFeed)
             .map(RSSFeed::getChannel)
@@ -42,6 +51,8 @@ public class RSSManager {
     Set<String> latestRSSFeedLinks =
         latestRSSFeedItems.stream().map(Item::getLink).collect(Collectors.toSet());
 
+    rssFeed.setCreateDate(new Date());
+    rssFeed.setLastModifiedDate(new Date());
     rssFeedLinks.removeAll(latestRSSFeedLinks);
     return rssFeedLinks.isEmpty()
         ? Optional.empty()
