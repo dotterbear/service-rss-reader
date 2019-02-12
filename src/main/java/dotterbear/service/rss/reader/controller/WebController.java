@@ -36,4 +36,11 @@ public class WebController {
     return new ResponseEntity<RSSFeed>(
         rssManager.fetchRSSFeed().orElse(new RSSFeed()), HttpStatus.OK);
   }
+
+  @GetMapping("getLatest")
+  @ResponseBody
+  public ResponseEntity<RSSFeed> getLatest() {
+    return new ResponseEntity<RSSFeed>(
+        rssRepository.getLatest().orElse(new RSSFeed()), HttpStatus.OK);
+  }
 }

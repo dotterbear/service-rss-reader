@@ -18,7 +18,7 @@ public interface RSSRepository extends CrudRepository<RSSFeed, String> {
 
   Optional<RSSFeed> findById(String id);
 
-  default Optional<RSSFeed> findByCreateDate() {
+  default Optional<RSSFeed> getLatest() {
     MongoOperations mongoOperation =
         (MongoOperations)
             ApplicationContextUtil.getApplicationContext().getBean(MongoTemplate.class);

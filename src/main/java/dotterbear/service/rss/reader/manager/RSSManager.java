@@ -42,7 +42,7 @@ public class RSSManager {
             .orElse(new ArrayList<Item>());
     Set<String> rssFeedLinks = rssFeedItems.stream().map(Item::getLink).collect(Collectors.toSet());
 
-    RSSFeed latestRSSFeed = rssRepository.findByCreateDate().orElse(new RSSFeed());
+    RSSFeed latestRSSFeed = rssRepository.getLatest().orElse(new RSSFeed());
     List<Item> latestRSSFeedItems =
         Optional.ofNullable(latestRSSFeed)
             .map(RSSFeed::getChannel)
