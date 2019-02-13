@@ -11,3 +11,4 @@
 ### TODO List
 - [] Exception
 - [] Status code
+- [] Logging
