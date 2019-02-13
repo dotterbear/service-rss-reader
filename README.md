@@ -13,3 +13,4 @@
 - [] Status code
 - [] Logging
 - [] Testing
+- [] Async
