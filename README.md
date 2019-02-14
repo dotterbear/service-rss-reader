@@ -1,5 +1,9 @@
 # service-rss-reader
 
+A eureka client to fetch rss.
+
+For more details, please see [service-overview](https://github.com/dotterbear/service-overview).
+
 ### Development
 
 ##### Prerequisites
