@@ -1,4 +1,4 @@
-package dotterbear.service.rss.reader;
+package com.dotterbear.service.rss.reader;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

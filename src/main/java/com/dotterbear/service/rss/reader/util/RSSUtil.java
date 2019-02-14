@@ -1,4 +1,4 @@
-package dotterbear.service.rss.reader.util;
+package com.dotterbear.service.rss.reader.util;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,9 +12,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.converter.xml.MappingJackson2XmlHttpMessageConverter;
 import org.springframework.stereotype.Component;
 
+import com.dotterbear.service.rss.reader.entity.RSSFeed;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-import dotterbear.service.rss.reader.entity.RSSFeed;
 
 @Component
 public class RSSUtil {

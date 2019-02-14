@@ -1,4 +1,4 @@
-package dotterbear.service.rss.reader.entity;
+package com.dotterbear.service.rss.reader.entity;
 
 import java.util.List;
 

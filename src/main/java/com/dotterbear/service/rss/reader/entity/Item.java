@@ -1,4 +1,4 @@
-package dotterbear.service.rss.reader.entity;
+package com.dotterbear.service.rss.reader.entity;
 
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlCData;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;

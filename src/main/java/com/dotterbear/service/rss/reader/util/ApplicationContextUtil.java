@@ -1,4 +1,4 @@
-package dotterbear.service.rss.reader.util;
+package com.dotterbear.service.rss.reader.util;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;

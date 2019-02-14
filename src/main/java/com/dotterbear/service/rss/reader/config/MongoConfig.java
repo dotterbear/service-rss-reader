@@ -1,4 +1,4 @@
-package dotterbear.service.rss.reader.config;
+package com.dotterbear.service.rss.reader.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -38,9 +38,6 @@ public class MongoConfig extends AbstractMongoConfiguration {
   @Override
   @Bean
   public MongoClient mongoClient() {
-    return new MongoClient(
-        new ServerAddress(host, port),
-//        MongoCredential.createCredential(authUserName, authDb, authPassword.toCharArray()),
-        new MongoClientOptions.Builder().build());
+    return new MongoClient(new ServerAddress(host, port), new MongoClientOptions.Builder().build());
   }
 }
