@@ -17,3 +17,4 @@ For more details, please see [service-overview](https://github.com/dotterbear/se
 - [] Logging
 - [] Testing
 - [] Async
+- [] Add auth to the db
