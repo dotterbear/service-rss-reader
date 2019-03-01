@@ -1,7 +1,8 @@
 package com.dotterbear.service.rss.reader.json.serializer;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
+import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import org.springframework.beans.factory.annotation.Value;
 import com.fasterxml.jackson.core.JsonGenerator;
@@ -16,8 +17,8 @@ public class JsonDateTimeSerializer extends JsonSerializer<Date> {
   @Override
   public void serialize(Date date, JsonGenerator jsonGenerator, SerializerProvider arg2)
       throws IOException {
-    SimpleDateFormat formatter = new SimpleDateFormat(dateFormat);
-    String format = formatter.format(date);
+    String format = DateTimeFormatter.ofPattern(dateFormat).withZone(ZoneOffset.UTC)
+        .format(date.toInstant());
     jsonGenerator.writeString(format);
   }
 
