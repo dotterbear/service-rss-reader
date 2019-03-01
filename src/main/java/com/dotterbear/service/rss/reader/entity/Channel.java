@@ -1,7 +1,11 @@
 package com.dotterbear.service.rss.reader.entity;
 
+import java.util.Date;
 import java.util.List;
-
+import com.dotterbear.service.rss.reader.json.deserializer.JobsDbRssFeedDateTimeDeserializer;
+import com.dotterbear.service.rss.reader.json.serializer.JsonDateTimeSerializer;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
@@ -10,7 +14,9 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 public class Channel {
 
   @JacksonXmlProperty(localName = "pubDate")
-  private String pubDate;
+  @JsonDeserialize(using = JobsDbRssFeedDateTimeDeserializer.class)
+  @JsonSerialize(using = JsonDateTimeSerializer.class)
+  private Date pubDate;
 
   @JacksonXmlProperty(localName = "title")
   private String title;
@@ -22,7 +28,9 @@ public class Channel {
   private String description;
 
   @JacksonXmlProperty(localName = "lastBuildDate")
-  private String lastBuildDate;
+  @JsonDeserialize(using = JobsDbRssFeedDateTimeDeserializer.class)
+  @JsonSerialize(using = JsonDateTimeSerializer.class)
+  private Date lastBuildDate;
 
   @JacksonXmlElementWrapper(localName = "items", useWrapping = true)
   @JacksonXmlProperty(localName = "item")
@@ -31,11 +39,11 @@ public class Channel {
   @JacksonXmlProperty(localName = "language")
   private String language;
 
-  public String getPubDate() {
+  public Date getPubDate() {
     return pubDate;
   }
 
-  public void setPubDate(String pubDate) {
+  public void setPubDate(Date pubDate) {
     this.pubDate = pubDate;
   }
 
@@ -63,11 +71,11 @@ public class Channel {
     this.description = description;
   }
 
-  public String getLastBuildDate() {
+  public Date getLastBuildDate() {
     return lastBuildDate;
   }
 
-  public void setLastBuildDate(String lastBuildDate) {
+  public void setLastBuildDate(Date lastBuildDate) {
     this.lastBuildDate = lastBuildDate;
   }
 

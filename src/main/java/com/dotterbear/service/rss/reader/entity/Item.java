@@ -1,5 +1,10 @@
 package com.dotterbear.service.rss.reader.entity;
 
+import java.util.Date;
+import com.dotterbear.service.rss.reader.json.deserializer.JobsDbRssFeedDateTimeDeserializer;
+import com.dotterbear.service.rss.reader.json.serializer.JsonDateTimeSerializer;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlCData;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 
@@ -9,7 +14,9 @@ public class Item {
   private String guid;
 
   @JacksonXmlProperty(localName = "pubDate")
-  private String pubDate;
+  @JsonDeserialize(using = JobsDbRssFeedDateTimeDeserializer.class)
+  @JsonSerialize(using = JsonDateTimeSerializer.class)
+  private Date pubDate;
 
   @JacksonXmlCData
   @JacksonXmlProperty(localName = "title")
@@ -30,11 +37,11 @@ public class Item {
     this.guid = guid;
   }
 
-  public String getPubDate() {
+  public Date getPubDate() {
     return pubDate;
   }
 
-  public void setPubDate(String pubDate) {
+  public void setPubDate(Date pubDate) {
     this.pubDate = pubDate;
   }
 
