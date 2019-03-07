@@ -1,8 +1,11 @@
 spring:
   application:
     name: service-rss-reader
+  profiles:
+    active: compose,dev,prod
   cloud:
     config:
       discovery:
         enabled: true
         serviceId: service-config-server
+      fail-fast: true
